@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Filters\V1;
+
+use Illuminate\Http\Request;
+use App\Filters\ApiFilter;
+
+class CustomerFilter extends ApiFilter{
+    protected $allowedParams = [
+        "name"=> ['eq'],
+        'type'=> ['eq'],
+        'email'=> ['eq'],
+        'address'=> ['eq'],
+        'city'=> ['eq'],
+        'state'=> ['eq'],
+        "postalCode"=> ['eq','gt','lt']
+    ];
+
+    protected $columnMap = [
+        'postalCode'=> 'postal_code',
+    ];
+
+
+    
+}
